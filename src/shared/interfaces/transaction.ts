@@ -12,3 +12,10 @@ export interface ITransactionProps {
 export interface ITransactionProviderProps {
 	children: ReactNode
 }
+
+export interface ITransactionContextData {
+	transactions: ITransactionProps[]
+	createTransaction: (transaction: TransactionInput) => Promise<void>
+}
+
+export type TransactionInput = Omit<ITransactionProps, 'id' | 'createdAt'>
